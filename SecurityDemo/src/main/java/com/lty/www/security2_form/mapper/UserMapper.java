@@ -1,6 +1,7 @@
 package com.lty.www.security2_form.mapper;
 
 import com.lty.www.security2_form.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;

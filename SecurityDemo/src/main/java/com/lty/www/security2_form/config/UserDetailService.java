@@ -10,9 +10,9 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class UserDetailService {
-    @Autowired
+//    @Autowired
     DataSource dataSource;
 
     @Bean

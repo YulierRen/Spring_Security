@@ -28,7 +28,8 @@
     }
 
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="text"].captcha {
       width: 100%;
       padding: 10px 14px;
       margin-bottom: 16px;
@@ -53,6 +54,18 @@
       background-color: #357ab8;
     }
 
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .captcha-container img {
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
     .error-message {
       color: red;
       text-align: center;
@@ -64,9 +77,16 @@
 <body>
 <div class="login-container">
   <h2>Login</h2>
-  <form method="post" action="/login">
+  <form method="post" action="/auth/form">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
+
+    <!-- Captcha Section -->
+    <div class="captcha-container">
+      <img src="/captcha.jpg" alt="captcha">
+      <input type="text" name="captcha" class="captcha" placeholder="captcha" required>
+    </div>
+
     <button type="submit">Sign In</button>
   </form>
   <div class="error-message">
@@ -80,4 +100,3 @@
 </div>
 </body>
 </html>
-
