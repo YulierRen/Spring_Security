@@ -16,6 +16,9 @@ public class SpringConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/admin/api/**").hasRole("ADMIN")
+                        .requestMatchers("/user/api/**").hasRole("USER")
+                        .requestMatchers("/app/api/**").permitAll()
                         .requestMatchers("/my_login", "/css/**", "/js/**").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -30,7 +33,8 @@ public class SpringConfiguration {
                         .logoutSuccessUrl("/my_login?logout")
                         .permitAll()
                 )
-                        .csrf(csrf -> csrf.disable());           // 禁用 CSRF 防护（开发环境推荐）
+                        .csrf(csrf -> csrf.disable());
+        // 禁用 CSRF 防护（开发环境推荐）
 
         return http.build();
 //        http
